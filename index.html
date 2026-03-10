@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuiCK — Quality Childcare in Kenya</title>
+  <meta name="description" content="A large-scale randomized evaluation studying how social franchising can strengthen childcare markets in Kenya — a triple win for parents, children, and providers." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+    :root {
+      --color-bg-deep:     #0a0718;
+      --color-bg-mid:      #130d2e;
+      --color-bg-card:     #1a1040;
+      --color-purple:      #211551;
+      --color-gold:        #FBC21B;
+      --color-mint:        #68F191;
+      --color-white:       #ffffff;
+      --color-white-70:    rgba(255,255,255,0.70);
+      --color-white-40:    rgba(255,255,255,0.40);
+      --color-gold-20:     rgba(251,194,27,0.20);
+      --color-gold-40:     rgba(251,194,27,0.40);
+      --color-mint-20:     rgba(104,241,145,0.20);
+
+      --font-display:      'DM Serif Display', Georgia, serif;
+      --font-body:         'Open Sans', system-ui, sans-serif;
+
+      --nav-height:        72px;
+      --section-pad:       clamp(80px, 10vw, 140px);
+      --container-max:     1140px;
+      --container-pad:     clamp(20px, 5vw, 60px);
+
+      --radius-sm:         8px;
+      --radius-md:         14px;
+      --radius-lg:         20px;
+
+      --shadow-card:       0 4px 30px rgba(0,0,0,0.35);
+      --transition:        all 0.35s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg-deep);
+      color: var(--color-white-70);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--color-gold); text-decoration: none; transition: var(--transition); }
+    a:hover { color: var(--color-mint); }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--container-pad);
+    }
+
+    /* ===========================
+       SECTION UTILITIES
+    =========================== */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--color-white);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--color-white-70);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(10,7,24,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+    .nav-logo-text {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-white-40);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-white-70);
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--color-white); }
+    .nav-cta {
+      background: var(--color-gold);
+      color: var(--color-purple) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .nav-cta:hover {
+      background: var(--color-mint);
+      color: var(--color-purple) !important;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--color-white-70); margin: 5px 0; transition: var(--transition); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height);
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--color-bg-deep) 0%, var(--color-purple) 50%, #1a0f3e 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 400px at 20% 80%, rgba(251,194,27,0.08), transparent),
+        radial-gradient(ellipse 500px 500px at 80% 20%, rgba(104,241,145,0.06), transparent);
+      pointer-events: none;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .hero-logo {
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+      color: var(--color-white);
+      line-height: 1.25;
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--color-white-70);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem;
+      color: var(--color-white-40);
+      margin-top: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      max-width: 160px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-gold);
+      color: var(--color-purple);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+    .btn-primary:hover { background: var(--color-mint); color: var(--color-purple); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1.5px solid var(--color-white-40);
+      color: var(--color-white);
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+    .btn-outline:hover { border-color: var(--color-gold); color: var(--color-gold); }
+
+    /* ===========================
+       PROBLEM SECTION
+    =========================== */
+    .problem {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-deep);
+    }
+    .problem-header {
+      margin-bottom: 3rem;
+    }
+    .problem-intro {
+      font-size: 1.05rem;
+      color: var(--color-white-70);
+      max-width: 720px;
+      line-height: 1.8;
+      margin-top: 1rem;
+    }
+
+    /* Callout — inspired by design-b's infographic style */
+    .problem-callout {
+      background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(33,21,81,0.6) 100%);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .callout-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .callout-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .callout-stat-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--color-gold);
+      flex-shrink: 0;
+      min-width: 100px;
+    }
+    .callout-stat-text {
+      font-size: 0.95rem;
+      color: var(--color-white-70);
+      line-height: 1.6;
+      padding-top: 0.5rem;
+    }
+    .callout-stat-text strong {
+      color: var(--color-white);
+    }
+    .callout-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .fact-chip {
+      background: var(--color-gold-20);
+      border: 1px solid var(--color-gold-40);
+      border-radius: 50px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.88rem;
+      color: var(--color-white);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .fact-chip.mint {
+      background: var(--color-mint-20);
+      border-color: rgba(104,241,145,0.35);
+    }
+
+    /* Stat cards row */
+    .problem-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stat-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      border-color: var(--color-gold-40);
+      transform: translateY(-2px);
+    }
+    .stat-card-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 0.5rem;
+    }
+    .stat-card-label {
+      font-size: 0.82rem;
+      color: var(--color-white-70);
+      line-height: 1.5;
+    }
+    .problem-source {
+      font-size: 0.75rem;
+      color: var(--color-white-40);
+      margin-top: 1.5rem;
+      font-style: italic;
+    }
+
+    /* ===========================
+       TRIPLE WIN
+    =========================== */
+    .triple-win {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-mid) 100%);
+    }
+    .triple-win-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .triple-win-header .section-subtitle {
+      margin: 0 auto;
+    }
+    .win-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .win-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
+    .win-card:hover {
+      border-color: var(--color-gold-40);
+      transform: translateY(-3px);
+    }
+    .win-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .win-card-icon.parents {
+      background: var(--color-gold-20);
+      color: var(--color-gold);
+    }
+    .win-card-icon.children {
+      background: var(--color-mint-20);
+      color: var(--color-mint);
+    }
+    .win-card-icon.providers {
+      background: rgba(255,255,255,0.08);
+      color: var(--color-white);
+    }
+    .win-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--color-white);
+      margin-bottom: 0.7rem;
+    }
+    .win-card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--color-white-70);
+    }
+    .win-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .win-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.06);
+      color: var(--color-white-40);
+    }
+
+    /* ===========================
+       THE APPROACH
+    =========================== */
+    .approach {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-deep);
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    .approach-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--color-white-70);
+    }
+    .approach-text p + p {
+      margin-top: 1rem;
+    }
+    .approach-components {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .approach-components h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-white);
+      margin-bottom: 1.2rem;
+    }
+    .component-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .component-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--color-white-70);
+      line-height: 1.5;
+    }
+    .component-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-mint);
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+    .approach-image {
+      margin-top: 2.5rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .approach-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ===========================
+       RESEARCH QUESTIONS
+    =========================== */
+    .questions {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-mid) 100%);
+    }
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .question-group {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .question-group h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--color-white);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--color-gold-20);
+    }
+    .question-group.secondary h3 {
+      border-bottom-color: var(--color-mint-20);
+    }
+    .question-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .question-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--color-white-70);
+    }
+    .question-id {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: var(--color-gold);
+      background: var(--color-gold-20);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+      letter-spacing: 0.04em;
+    }
+    .question-group.secondary .question-id {
+      color: var(--color-mint);
+      background: var(--color-mint-20);
+    }
+
+    /* ===========================
+       RESEARCH DESIGN
+    =========================== */
+    .design {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-deep);
+    }
+    .design-table-wrap {
+      margin-top: 2rem;
+      overflow-x: auto;
+    }
+    .design-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .design-table thead th {
+      background: var(--color-purple);
+      color: var(--color-white);
+      font-weight: 600;
+      padding: 1rem 1.2rem;
+      text-align: left;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .design-table tbody td {
+      padding: 0.9rem 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--color-white-70);
+    }
+    .design-table tbody tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+    .design-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--color-white);
+    }
+    .design-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .design-images img {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ===========================
+       PHOTO STRIP
+    =========================== */
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      padding: 0;
+    }
+    .photo-strip img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    /* ===========================
+       PUBLICATIONS
+    =========================== */
+    .publications {
+      padding: var(--section-pad) 0;
+      background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-mid) 100%);
+    }
+    .pub-header {
+      margin-bottom: 2.5rem;
+    }
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .pub-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .pub-card:hover {
+      border-color: var(--color-gold-40);
+      transform: translateY(-2px);
+    }
+    .pub-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: var(--color-gold-20);
+      color: var(--color-gold);
+    }
+    .tag.wip {
+      background: rgba(255,255,255,0.08);
+      color: var(--color-white-40);
+    }
+    .tag.forthcoming {
+      background: var(--color-mint-20);
+      color: var(--color-mint);
+    }
+    .status {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--color-white-40);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .status.released { color: var(--color-mint); }
+    .pub-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-white);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .pub-card p {
+      font-size: 0.88rem;
+      color: var(--color-white-70);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .pub-card-link {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* ===========================
+       PHOTO GRID (asymmetric)
+    =========================== */
+    .photo-grid-asym {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+      margin: 0;
+    }
+    .photo-grid-asym img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-grid-asym img:first-child {
+      grid-row: 1 / 3;
+    }
+
+    /* ===========================
+       TEAM
+    =========================== */
+    .team {
+      padding: var(--section-pad) 0;
+      background: var(--color-bg-deep);
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .team-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-top: 3px solid var(--color-gold);
+      transition: var(--transition);
+    }
+    .team-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-gold-40);
+      border-top-color: var(--color-gold);
+    }
+    .team-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      border: 2px solid var(--color-gold-20);
+    }
+    .team-avatar-placeholder {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      background: var(--color-gold-20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--color-gold);
+      border: 2px solid var(--color-gold-20);
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-white);
+      margin-bottom: 0.3rem;
+    }
+    .team-role {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.6rem;
+    }
+    .team-affil {
+      font-size: 0.82rem;
+      color: var(--color-white-40);
+      line-height: 1.5;
+    }
+
+    /* ===========================
+       PARTNERS
+    =========================== */
+    .partners {
+      padding: clamp(40px, 6vw, 80px) 0;
+      background: var(--color-bg-mid);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .partners-label {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .partner-logo {
+      opacity: 0.6;
+      transition: var(--transition);
+    }
+    .partner-logo:hover { opacity: 1; }
+    .partner-logo img {
+      height: 40px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .partner-logo.no-invert img {
+      filter: none;
+    }
+    .partner-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      padding: 4rem 0 2rem;
+      background: var(--color-bg-deep);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand img {
+      height: 30px;
+      margin-bottom: 0.6rem;
+    }
+    .footer-twi {
+      margin-top: 1rem;
+    }
+    .footer-twi img {
+      height: 24px;
+      opacity: 0.5;
+    }
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: var(--color-white-40);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .footer h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-white);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--color-white-40);
+    }
+    .footer-links a:hover { color: var(--color-gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--color-white-40);
+    }
+    .footer-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-mint);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      .problem-callout { grid-template-columns: 1fr; }
+      .win-cards { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .questions-grid { grid-template-columns: 1fr; }
+      .design-images { grid-template-columns: 1fr; }
+      .pub-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .problem-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .photo-strip { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: 1fr; }
+      .problem-stats { grid-template-columns: 1fr; }
+      .callout-stat-number { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="QuiCK home">
+        <img src="assets/logos/quick-white-wordmark.png"
+             alt="QuiCK"
+             style="height:28px;">
+        <span class="nav-logo-text">Triple Win Initiative</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#triple-win">Triple Win</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="nav-cta">Policy Brief</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <img src="assets/logos/quick-white-logo.png"
+           alt="QuiCK — Quality Childcare in Kenya"
+           class="hero-logo">
+
+      <h1 class="hero-tagline">Providers, parents, children — a childcare market that works for all three.</h1>
+
+      <p class="hero-sub">
+        A large-scale randomized evaluation studying how social franchising can strengthen childcare markets in Kenya's informal settlements.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">1 in 3</div>
+          <div class="hero-stat-label">Parents bring their child to work</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">32%</div>
+          <div class="hero-stat-label">Of household income spent on childcare</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">51</div>
+          <div class="hero-stat-label">Communities across 11 counties</div>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="btn-primary">
+          Read the Policy Brief &rarr;
+        </a>
+        <a href="#research" class="btn-outline">
+          Explore the Research
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THE PROBLEM ========== -->
+  <section class="problem" id="problem">
+    <div class="container">
+      <div class="problem-header">
+        <div class="section-label">The Problem</div>
+        <h2 class="section-title">Childcare is a barrier to women's economic participation</h2>
+        <p class="problem-intro">
+          Access to high-quality paid childcare is central to advancing women's economic and social agency while also promoting child development. But in Kenya's informal settlements, the childcare market sits at an equilibrium of low prices and low quality — where parents have limited willingness to pay and profitability is low. The market isn't fixing itself because quality is hard to observe and providers lack support to improve.
+        </p>
+      </div>
+
+      <!-- Infographic callout (design-b inspired) -->
+      <div class="problem-callout">
+        <div class="callout-stats">
+          <div class="callout-stat">
+            <div class="callout-stat-number">32%</div>
+            <div class="callout-stat-text">
+              <strong>of weekly household income</strong> is spent on childcare — compared to ~7% in the U.S. and 15–17% across the OECD.
+            </div>
+          </div>
+          <div class="callout-stat">
+            <div class="callout-stat-number">~20%</div>
+            <div class="callout-stat-text">
+              <strong>of children are likely hungry</strong> on any given day while in care.
+            </div>
+          </div>
+          <div class="callout-stat">
+            <div class="callout-stat-number">44%</div>
+            <div class="callout-stat-text">
+              <strong>of daycares report having no toys or books</strong> for children — facilities with limited resources for stimulation or cognitive development.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout-facts">
+          <div class="fact-chip">1 in 3 parents bring their child to work due to lack of affordable care</div>
+          <div class="fact-chip">Prices do not reliably signal quality — the market exhibits classic "lemons" dynamics</div>
+          <div class="fact-chip mint">Parents systematically overestimate quality, especially on less observable dimensions</div>
+          <div class="fact-chip mint">Non-school caregivers earn ~$37/month — well below Kenya's minimum wage</div>
+        </div>
+      </div>
+
+      <div class="problem-stats">
+        <div class="stat-card">
+          <div class="stat-card-number">22%</div>
+          <div class="stat-card-label">of daycares administer medicine to calm children</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-number">40–50%</div>
+          <div class="stat-card-label">of daycares have no toys or books for children</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-number">$37</div>
+          <div class="stat-card-label">average monthly earnings for non-school caregivers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-number">Price ≠ Quality</div>
+          <div class="stat-card-label">Prices do not reliably signal quality in this market</div>
+        </div>
+      </div>
+
+      <p class="problem-source">Source: QuiCK baseline survey, 2024 (working paper in progress)</p>
+    </div>
+  </section>
+
+  <!-- ========== TRIPLE WIN ========== -->
+  <section class="triple-win" id="triple-win">
+    <div class="container">
+      <div class="triple-win-header">
+        <div class="section-label">The Triple Win</div>
+        <h2 class="section-title">When childcare works, everyone wins</h2>
+        <p class="section-subtitle">
+          Improving childcare quality creates a virtuous cycle — better outcomes for providers, parents, and children simultaneously.
+        </p>
+      </div>
+
+      <div class="win-cards">
+
+        <!-- Parents -->
+        <div class="win-card">
+          <div class="win-card-icon parents">P</div>
+          <h3>Parents</h3>
+          <p>When childcare quality improves, parents — especially mothers — gain the confidence and freedom to increase their labor force participation, work more hours, and earn more. Access to reliable childcare can mean the difference between casual day labor and a steady job.</p>
+          <div class="win-tags">
+            <span class="win-tag">Earnings</span>
+            <span class="win-tag">Labor Supply</span>
+            <span class="win-tag">Empowerment</span>
+          </div>
+        </div>
+
+        <!-- Children -->
+        <div class="win-card">
+          <div class="win-card-icon children">C</div>
+          <h3>Children</h3>
+          <p>Higher-quality care directly benefits children through improved feeding, better sanitation, more stimulation, and structured learning activities. Investments in early childhood have long-term returns on health, education, and well-being.</p>
+          <div class="win-tags">
+            <span class="win-tag">Nutrition</span>
+            <span class="win-tag">Development</span>
+            <span class="win-tag">Health</span>
+          </div>
+        </div>
+
+        <!-- Providers -->
+        <div class="win-card">
+          <div class="win-card-icon providers">F</div>
+          <h3>Providers</h3>
+          <p>Training, mentorship, and franchise branding help daycare owners professionalize their businesses, attract more families, and increase revenue. Quality improvements can transform a low-margin survival operation into a sustainable enterprise.</p>
+          <div class="win-tags">
+            <span class="win-tag">Revenue</span>
+            <span class="win-tag">Professionalization</span>
+            <span class="win-tag">Sustainability</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHOTO STRIP ========== -->
+  <div class="photo-strip">
+    <img src="assets/images/fieldwork/kids_beads.jpeg" alt="Children playing with beads" loading="lazy">
+    <img src="assets/images/fieldwork/kid_puzzles.jpeg" alt="Child working on puzzles" loading="lazy">
+    <img src="assets/images/fieldwork/child_assessment.jpeg" alt="Child assessment" loading="lazy">
+    <img src="assets/images/fieldwork/ipa_walking.jpg" alt="IPA fieldwork" loading="lazy">
+  </div>
+
+  <!-- ========== THE APPROACH ========== -->
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="section-label">The Approach</div>
+      <h2 class="section-title">Social franchising for childcare markets</h2>
+
+      <div class="approach-grid">
+        <div class="approach-text">
+          <p>
+            We partner with a Kenya-based social enterprise that works with owners of existing private daycare facilities in informal settlements. The partner organization identifies communities, canvasses all eligible daycare providers, and invites them to a free, half-day workshop introducing the social franchise model.
+          </p>
+          <p>
+            Interested providers then participate in a three-day training covering effective early education practices, health and hygiene, and business skills. Providers who complete the program and meet quality standards become franchisees — receiving a one-time capital improvement grant (~$200), regular mentoring visits, smartphone with the partner's app, and in-kind feeding support for enrolled children.
+          </p>
+          <p>
+            Franchisee status signals to parents that a center meets a minimum quality standard set by the partner organization. We randomize entry into 51 communities across 11 counties to evaluate the impacts of this model on both the supply and demand sides of the childcare market.
+          </p>
+        </div>
+
+        <div class="approach-components">
+          <h4>Program Components</h4>
+          <ul class="component-list">
+            <li>Three-day training on caregiving, health &amp; hygiene, and business practices</li>
+            <li>Three-month mentoring program with regular provider visits</li>
+            <li>Capital improvement grant (~$200) for facility upgrades</li>
+            <li>Regular delivery of fortified porridge for enrolled children</li>
+            <li>Quality assurance and franchise branding upon meeting standards</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="approach-image">
+        <img src="assets/images/project/Study_Design_202510.png"
+             alt="QuiCK study design diagram"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH QUESTIONS ========== -->
+  <section class="questions" id="research">
+    <div class="container">
+      <div class="section-label">Research Questions</div>
+      <h2 class="section-title">What we are testing</h2>
+      <p class="section-subtitle" style="margin-bottom: 0.5rem;">
+        Pre-registered hypotheses from our pre-analysis plan, spanning both the childcare and microentrepreneurship literatures.
+      </p>
+
+      <div class="questions-grid">
+        <div class="question-group primary">
+          <h3>Primary Hypotheses</h3>
+          <ul class="question-list">
+            <li>
+              <span class="question-id">HA1</span>
+              <span>The social franchising model will <strong>improve daycare quality</strong>, as measured by hygiene &amp; safety, toys &amp; manipulatives, and child experience indices.</span>
+            </li>
+            <li>
+              <span class="question-id">HA2</span>
+              <span>The social franchising model will <strong>increase provider revenue</strong>.</span>
+            </li>
+            <li>
+              <span class="question-id">HA3</span>
+              <span>The social franchising model will <strong>increase the number of child-days served</strong>.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="question-group secondary">
+          <h3>Secondary Hypotheses</h3>
+          <ul class="question-list">
+            <li>
+              <span class="question-id">HB1</span>
+              <span><strong>Spillover effects</strong> onto competing providers, measured by market entry, exit, and total children in care.</span>
+            </li>
+            <li>
+              <span class="question-id">HB2</span>
+              <span>Increase <strong>provider profits</strong>.</span>
+            </li>
+            <li>
+              <span class="question-id">HB3</span>
+              <span>Increase <strong>provider agency and pride</strong> in profession.</span>
+            </li>
+            <li>
+              <span class="question-id">HB4</span>
+              <span>Increase <strong>household usage of childcare</strong> (extensive and intensive margins).</span>
+            </li>
+            <li>
+              <span class="question-id">HB5</span>
+              <span>Increase <strong>maternal employment and household earnings</strong>.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESEARCH DESIGN ========== -->
+  <section class="design" id="design">
+    <div class="container">
+      <div class="section-label">Research Design</div>
+      <h2 class="section-title">A cluster randomized trial at scale</h2>
+      <p class="section-subtitle">
+        We randomize the entry of our partner organization into communities and assess the impacts on both the supply and demand for daycare.
+      </p>
+
+      <div class="design-table-wrap">
+        <table class="design-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Design</td>
+              <td>Cluster randomized controlled trial (community-level randomization)</td>
+            </tr>
+            <tr>
+              <td>Firm census</td>
+              <td>978 daycare providers across 51 communities in 11 counties</td>
+            </tr>
+            <tr>
+              <td>Household sample</td>
+              <td>2,820 households with children ages 0–4</td>
+            </tr>
+            <tr>
+              <td>Treatment</td>
+              <td>525 firms in treatment communities; 453 firms in control</td>
+            </tr>
+            <tr>
+              <td>Data collection</td>
+              <td>Baseline (2024), phone survey, midline (2025), endline (2026)</td>
+            </tr>
+            <tr>
+              <td>Pre-registration</td>
+              <td><a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener">AEA Registry: AEARCTR-0011747</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="design-images">
+        <img src="assets/images/project/Study_Design_202510.png"
+             alt="Study design figure"
+             loading="lazy">
+        <img src="assets/images/project/Study_Timeline_202510.png"
+             alt="Study timeline"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PUBLICATIONS & OUTPUTS ========== -->
+  <section class="publications" id="publications">
+    <div class="container">
+      <div class="pub-header">
+        <div class="section-label">Publications &amp; Papers</div>
+        <h2 class="section-title">Research outputs</h2>
+        <p class="section-subtitle">
+          The QuiCK study generates evidence across two linked domains: the childcare market and children's health and development. We report results as they become available.
+        </p>
+      </div>
+
+      <div class="pub-grid">
+
+        <!-- Policy Brief -->
+        <div class="pub-card">
+          <div class="pub-card-top">
+            <span class="tag">Policy Brief</span>
+            <span class="status released">Released</span>
+          </div>
+          <h3>G²LM|LIC Policy Brief No. 82</h3>
+          <p>Midline results on firm quality, survival, and market-level spillovers from the social franchising intervention.</p>
+          <a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="pub-card-link">
+            Read at IZA &rarr;
+          </a>
+        </div>
+
+        <!-- Baseline paper -->
+        <div class="pub-card">
+          <div class="pub-card-top">
+            <span class="tag wip">Working Paper</span>
+            <span class="status">Work in Progress</span>
+          </div>
+          <h3>Baseline Paper: Childcare Market Conditions</h3>
+          <p>Information frictions, cost burden, quality gaps, and the "lemons" dynamics of Kenya's informal childcare market.</p>
+        </div>
+
+        <!-- Protocol paper -->
+        <div class="pub-card">
+          <div class="pub-card-top">
+            <span class="tag forthcoming">Protocol Paper</span>
+            <span class="status">Forthcoming — BMJ Open</span>
+          </div>
+          <h3>Child Development Measurement Protocol</h3>
+          <p>Methods for measuring child nutrition and development outcomes (IDELA) within the QuiCK evaluation.</p>
+        </div>
+
+        <!-- Endline -->
+        <div class="pub-card">
+          <div class="pub-card-top">
+            <span class="tag wip">Paper</span>
+            <span class="status">Coming 2026</span>
+          </div>
+          <h3>Endline Results</h3>
+          <p>Full firm, household, and child outcomes — firm quality, competition, sustainability, mothers' economic opportunities, and child development.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHOTO GRID ========== -->
+  <div class="photo-grid-asym">
+    <img src="assets/images/fieldwork/scales_weighing.jpeg" alt="Fieldwork — weighing" loading="lazy">
+    <img src="assets/images/fieldwork/dorine_child.jpeg" alt="Caregiver and child" loading="lazy">
+    <img src="assets/images/fieldwork/firm_survey.jpeg" alt="Firm survey" loading="lazy">
+  </div>
+
+  <!-- ========== TEAM ========== -->
+  <section class="team" id="team">
+    <div class="container">
+      <div class="team-header">
+        <div class="section-label">Research Team</div>
+        <h2 class="section-title">The people behind the study</h2>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <img src="assets/images/team/beam.jpg"
+               alt="Emily Beam"
+               class="team-avatar">
+          <div class="team-name">Emily Beam</div>
+          <div class="team-role">Principal Investigator</div>
+          <div class="team-affil">Associate Professor, University of Vermont</div>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team/fitzpatrick.jpg"
+               alt="Anne Fitzpatrick"
+               class="team-avatar">
+          <div class="team-name">Anne Fitzpatrick</div>
+          <div class="team-role">Principal Investigator</div>
+          <div class="team-affil">Associate Professor, The Ohio State University</div>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team/reimao.jpg"
+               alt="Maira Emy Reimão"
+               class="team-avatar">
+          <div class="team-name">Maira Emy Reimão</div>
+          <div class="team-role">Principal Investigator</div>
+          <div class="team-affil">Assistant Professor, Villanova University</div>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team/ochieng.jpg"
+               alt="Vincent Ochieng"
+               class="team-avatar">
+          <div class="team-name">Vincent Ochieng</div>
+          <div class="team-role">Research Manager</div>
+          <div class="team-affil">Innovations for Poverty Action, Kenya</div>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team/mudaki.jpeg"
+               alt="John Osoro Mudaki"
+               class="team-avatar">
+          <div class="team-name">John Osoro Mudaki</div>
+          <div class="team-role">Research Associate</div>
+          <div class="team-affil">Innovations for Poverty Action, Kenya</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar-placeholder">EK</div>
+          <div class="team-name">Eunice Kioko</div>
+          <div class="team-role">Associate Research Manager</div>
+          <div class="team-affil">Innovations for Poverty Action, Kenya</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARTNERS & FUNDERS ========== -->
+  <section class="partners" id="partners">
+    <div class="container">
+      <div class="partners-label">
+        <div class="section-label">Partners &amp; Funders</div>
+      </div>
+      <div class="partner-logos">
+        <div class="partner-logo">
+          <img src="assets/images/funders/UVM.png" alt="University of Vermont">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/osu.jpg" alt="Ohio State University">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/IPA.png" alt="Innovations for Poverty Action">
+        </div>
+        <div class="partner-divider"></div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/lego.svg" alt="LEGO Foundation">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/hilton.svg" alt="Hilton Foundation">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/gates_foundation.png" alt="Gates Foundation">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/LIF.png" alt="LIF">
+        </div>
+        <div class="partner-logo">
+          <img src="assets/images/funders/LIC.png" alt="G²LM|LIC">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logos/quick-logomark-white.png"
+               alt="QuiCK"
+               style="height:28px;">
+          <p class="footer-tagline">Quality Childcare in Kenya</p>
+          <p class="footer-tagline">A study of the Triple Win Initiative</p>
+          <div class="footer-twi">
+            <img src="assets/logos/twi-white-logo.png"
+                 alt="Triple Win Initiative">
+          </div>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener">Policy Brief</a></li>
+            <li><a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener">Pre-Analysis Plan</a></li>
+            <li><a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener">Pre-Results Report</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Team</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.emilybeam.com" target="_blank" rel="noopener">Emily Beam (UVM)</a></li>
+            <li><a href="#">Anne Fitzpatrick (OSU)</a></li>
+            <li><a href="#">Maira Emy Reimão (Villanova)</a></li>
+            <li><a href="#">IPA Kenya</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 QuiCK Study. University of Vermont &amp; collaborators.</span>
+        <div class="footer-status">
+          <span class="footer-status-dot"></span>
+          <span>Data collection ongoing</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
