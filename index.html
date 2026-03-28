@@ -641,9 +641,33 @@
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
-    .design-images img {
+    .figure-card {
       border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+    .figure-card.light-panel {
+      background: #f8f5ee;
+      border-color: rgba(255,255,255,0.16);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.28);
+    }
+    .figure-card.light-panel img {
+      background: #fffdfa;
+      padding: 1rem;
+    }
+    .figure-card img {
+      width: 100%;
+      display: block;
+    }
+    .figure-card figcaption {
+      padding: 0.9rem 1rem 1rem;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--color-white-40);
+    }
+    .figure-card.light-panel figcaption {
+      color: rgba(20, 16, 40, 0.78);
     }
 
     /* ===========================
@@ -1412,15 +1436,24 @@
       </div>
 
       <div class="design-images">
-        <img src="assets/images/project/Study_Design_202510.png"
-             alt="Study design figure"
-             loading="lazy">
-        <img src="assets/images/project/Study_Timeline_202510.png"
-             alt="Study timeline"
-             loading="lazy">
-        <img src="assets/images/project/DEP_BL_Community_Map.png"
-             alt="Community map for the QuiCK study"
-             loading="lazy">
+        <figure class="figure-card light-panel">
+          <img src="assets/images/project/Study_Design_202510.png"
+               alt="Study design figure"
+               loading="lazy">
+          <figcaption>Experimental design flowchart presented on a light panel for readability against the site’s dark theme.</figcaption>
+        </figure>
+        <figure class="figure-card light-panel">
+          <img src="assets/images/project/Study_Timeline_202510.png"
+               alt="Study timeline"
+               loading="lazy">
+          <figcaption>Study timeline shown on a light panel so the schedule, labels, and structure remain legible.</figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img src="assets/images/project/DEP_BL_Community_Map.png"
+               alt="Community map for the QuiCK study"
+               loading="lazy">
+          <figcaption>Community map of the QuiCK study footprint across 11 counties in Kenya.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -1539,7 +1572,7 @@
 
   <!-- ========== PHOTO GRID ========== -->
   <div class="photo-grid-asym">
-    <img src="assets/images/fieldwork/scales_weighing.jpeg" alt="Fieldwork — weighing" loading="lazy">
+    <img src="assets/images/fieldwork/child_assessment.jpeg" alt="Child assessment" loading="lazy">
     <img src="assets/images/fieldwork/dorine_child.jpeg" alt="Caregiver and child" loading="lazy">
     <img src="assets/images/fieldwork/firm_survey.jpeg" alt="Firm survey" loading="lazy">
   </div>
@@ -1589,18 +1622,18 @@
 
         <div class="team-card">
           <img src="assets/images/team/ochieng.jpg"
-               alt="Vincent Ochieng"
+               alt="Eric Ochieng"
                class="team-avatar">
-          <div class="team-name">Vincent Ochieng</div>
+          <div class="team-name">Eric Ochieng</div>
           <div class="team-role">Research Manager</div>
           <div class="team-affil">Innovations for Poverty Action, Kenya</div>
         </div>
 
         <div class="team-card">
           <img src="assets/images/team/mudaki.jpeg"
-               alt="John Osoro Mudaki"
+               alt="Dorine Mudaki"
                class="team-avatar">
-          <div class="team-name">John Osoro Mudaki</div>
+          <div class="team-name">Dorine Mudaki</div>
           <div class="team-role">Research Associate</div>
           <div class="team-affil">Innovations for Poverty Action, Kenya</div>
         </div>
