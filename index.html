@@ -111,6 +111,7 @@
       align-items: center;
       height: 100%;
       justify-content: space-between;
+      position: relative;
     }
     .nav-logo {
       display: flex;
@@ -144,6 +145,7 @@
       transition: var(--transition);
     }
     .nav-links a:hover { color: var(--color-white); }
+    .nav-links.open { display: flex; }
     .nav-cta {
       background: var(--color-gold);
       color: var(--color-purple) !important;
@@ -645,6 +647,48 @@
     }
 
     /* ===========================
+       CURRENT STATUS
+    =========================== */
+    .current-status {
+      padding: clamp(48px, 7vw, 88px) 0;
+      background: linear-gradient(180deg, var(--color-bg-mid) 0%, var(--color-bg-deep) 100%);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .status-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+    }
+    .status-card-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 0.7rem;
+    }
+    .status-card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--color-white);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .status-card p {
+      font-size: 0.86rem;
+      color: var(--color-white-70);
+      line-height: 1.6;
+    }
+
+    /* ===========================
        PHOTO STRIP
     =========================== */
     .photo-strip {
@@ -732,6 +776,12 @@
       line-height: 1.6;
       flex-grow: 1;
     }
+    .pub-meta {
+      font-size: 0.76rem;
+      color: var(--color-white-40);
+      margin-top: 0.85rem;
+      line-height: 1.5;
+    }
     .pub-card-link {
       margin-top: 1rem;
       font-size: 0.82rem;
@@ -787,6 +837,13 @@
       border-color: var(--color-gold-40);
       border-top-color: var(--color-gold);
     }
+    .team-card a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .team-card a:hover .team-name {
+      color: var(--color-gold);
+    }
     .team-avatar {
       width: 90px;
       height: 90px;
@@ -796,17 +853,21 @@
       border: 2px solid var(--color-gold-20);
     }
     .team-avatar-placeholder {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
+      width: 110px;
+      height: 82px;
+      border-radius: 14px;
       margin: 0 auto 1rem;
-      background: var(--color-gold-20);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        var(--color-gold-20);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--color-gold);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-white-40);
       border: 2px solid var(--color-gold-20);
     }
     .team-name {
@@ -853,6 +914,9 @@
       transition: var(--transition);
     }
     .partner-logo:hover { opacity: 1; }
+    .partner-logo a {
+      display: block;
+    }
     .partner-logo img {
       height: 40px;
       width: auto;
@@ -937,6 +1001,41 @@
     }
 
     /* ===========================
+       TWI
+    =========================== */
+    .twi-section {
+      padding: clamp(48px, 7vw, 88px) 0;
+      background: var(--color-bg-card);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .twi-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .twi-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .twi-logo-wrap img {
+      max-width: 100%;
+      height: auto;
+      opacity: 0.9;
+    }
+    .twi-copy p {
+      font-size: 0.96rem;
+      line-height: 1.8;
+      color: var(--color-white-70);
+      max-width: 760px;
+    }
+
+    /* ===========================
        RESPONSIVE
     =========================== */
     @media (max-width: 900px) {
@@ -949,15 +1048,33 @@
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: 1fr; }
       .problem-stats { grid-template-columns: repeat(2, 1fr); }
+      .status-grid { grid-template-columns: repeat(2, 1fr); }
+      .twi-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .nav-links { display: none; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0.9rem;
+        align-items: flex-start;
+        padding: 1rem;
+        background: rgba(10,7,24,0.96);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-card);
+      }
       .nav-toggle { display: block; }
       .hero-stats { flex-direction: column; gap: 1.5rem; }
       .photo-strip { grid-template-columns: repeat(2, 1fr); }
       .team-grid { grid-template-columns: 1fr; }
       .problem-stats { grid-template-columns: 1fr; }
       .callout-stat-number { font-size: 2.2rem; }
+      .status-grid { grid-template-columns: 1fr; }
+      .nav-cta { display: inline-flex; }
     }
   </style>
 </head>
@@ -973,7 +1090,7 @@
              style="height:28px;">
         <span class="nav-logo-text">Triple Win Initiative</span>
       </a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-menu">
         <li><a href="#problem">The Problem</a></li>
         <li><a href="#triple-win">Triple Win</a></li>
         <li><a href="#approach">Approach</a></li>
@@ -981,7 +1098,7 @@
         <li><a href="#team">Team</a></li>
         <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="nav-cta">Policy Brief</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1108,7 +1225,7 @@
         <div class="win-card">
           <div class="win-card-icon parents">P</div>
           <h3>Parents</h3>
-          <p>When childcare quality improves, parents — especially mothers — gain the confidence and freedom to increase their labor force participation, work more hours, and earn more. Access to reliable childcare can mean the difference between casual day labor and a steady job.</p>
+          <p>When childcare quality improves, parents — especially mothers — may gain the confidence and freedom to work more consistently, expand their labor force participation, and pursue steadier income-generating opportunities. Access to reliable childcare can change what kinds of work are feasible.</p>
           <div class="win-tags">
             <span class="win-tag">Earnings</span>
             <span class="win-tag">Labor Supply</span>
@@ -1120,7 +1237,7 @@
         <div class="win-card">
           <div class="win-card-icon children">C</div>
           <h3>Children</h3>
-          <p>Higher-quality care directly benefits children through improved feeding, better sanitation, more stimulation, and structured learning activities. Investments in early childhood have long-term returns on health, education, and well-being.</p>
+          <p>Higher-quality care has the potential to benefit children through improved feeding, better sanitation, more stimulation, and structured learning activities. The study examines whether these changes translate into measurable gains in child health and development.</p>
           <div class="win-tags">
             <span class="win-tag">Nutrition</span>
             <span class="win-tag">Development</span>
@@ -1132,7 +1249,7 @@
         <div class="win-card">
           <div class="win-card-icon providers">F</div>
           <h3>Providers</h3>
-          <p>Training, mentorship, and franchise branding help daycare owners professionalize their businesses, attract more families, and increase revenue. Quality improvements can transform a low-margin survival operation into a sustainable enterprise.</p>
+          <p>Training, mentorship, and franchise branding are designed to help daycare owners professionalize their businesses, attract more families, and strengthen stability. The study tests whether these supports can improve sustainability in a low-margin market.</p>
           <div class="win-tags">
             <span class="win-tag">Revenue</span>
             <span class="win-tag">Professionalization</span>
@@ -1301,6 +1418,43 @@
         <img src="assets/images/project/Study_Timeline_202510.png"
              alt="Study timeline"
              loading="lazy">
+        <img src="assets/images/project/DEP_BL_Community_Map.png"
+             alt="Community map for the QuiCK study"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CURRENT STATUS ========== -->
+  <section class="current-status" id="status">
+    <div class="container">
+      <div class="section-label">Current Status</div>
+      <h2 class="section-title">Where the project stands now</h2>
+      <p class="section-subtitle">
+        As of March 2026, QuiCK has one released midline output, multiple in-progress papers, and ongoing data collection.
+      </p>
+
+      <div class="status-grid">
+        <div class="status-card">
+          <div class="status-card-label">Released</div>
+          <div class="status-card-title">Midline policy brief</div>
+          <p>Policy Brief No. 82 summarizes early evidence on firm quality, firm survival, and market spillovers.</p>
+        </div>
+        <div class="status-card">
+          <div class="status-card-label">In Progress</div>
+          <div class="status-card-title">Baseline market paper</div>
+          <p>A working paper on market conditions, information frictions, and childcare costs is currently in development.</p>
+        </div>
+        <div class="status-card">
+          <div class="status-card-label">Published</div>
+          <div class="status-card-title">Child-development protocol</div>
+          <p>The child-development protocol is now published in BMJ Open and documents the study's nutrition and development measurement approach.</p>
+        </div>
+        <div class="status-card">
+          <div class="status-card-label">Ongoing</div>
+          <div class="status-card-title">Endline data collection</div>
+          <p>Full child, household, and firm results will follow after endline data collection and analysis are complete.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1326,6 +1480,7 @@
           </div>
           <h3>G²LM|LIC Policy Brief No. 82</h3>
           <p>Midline results on firm quality, survival, and market-level spillovers from the social franchising intervention.</p>
+          <div class="pub-meta">Released December 2025</div>
           <a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="pub-card-link">
             Read at IZA &rarr;
           </a>
@@ -1339,26 +1494,43 @@
           </div>
           <h3>Baseline Paper: Childcare Market Conditions</h3>
           <p>Information frictions, cost burden, quality gaps, and the "lemons" dynamics of Kenya's informal childcare market.</p>
+          <div class="pub-meta">Working paper draft in progress</div>
         </div>
 
         <!-- Protocol paper -->
         <div class="pub-card">
           <div class="pub-card-top">
             <span class="tag forthcoming">Protocol Paper</span>
-            <span class="status">Forthcoming — BMJ Open</span>
+            <span class="status released">Published — BMJ Open</span>
           </div>
           <h3>Child Development Measurement Protocol</h3>
           <p>Methods for measuring child nutrition and development outcomes (IDELA) within the QuiCK evaluation.</p>
+          <div class="pub-meta">Published March 2026</div>
+          <a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener" class="pub-card-link">
+            Read at BMJ Open &rarr;
+          </a>
+        </div>
+
+        <!-- Child development results -->
+        <div class="pub-card">
+          <div class="pub-card-top">
+            <span class="tag wip">Paper</span>
+            <span class="status">In Progress</span>
+          </div>
+          <h3>Child Development Results</h3>
+          <p>Planned results on child nutrition, anthropometrics, and direct assessments of child development outcomes.</p>
+          <div class="pub-meta">Analysis will follow endline completion</div>
         </div>
 
         <!-- Endline -->
         <div class="pub-card">
           <div class="pub-card-top">
             <span class="tag wip">Paper</span>
-            <span class="status">Coming 2026</span>
+            <span class="status">Planned After Endline</span>
           </div>
           <h3>Endline Results</h3>
           <p>Full firm, household, and child outcomes — firm quality, competition, sustainability, mothers' economic opportunities, and child development.</p>
+          <div class="pub-meta">Comprehensive results paper after endline data collection and analysis</div>
         </div>
 
       </div>
@@ -1386,7 +1558,9 @@
           <img src="assets/images/team/beam.jpg"
                alt="Emily Beam"
                class="team-avatar">
-          <div class="team-name">Emily Beam</div>
+          <a href="https://www.emilybeam.com" target="_blank" rel="noopener">
+            <div class="team-name">Emily Beam</div>
+          </a>
           <div class="team-role">Principal Investigator</div>
           <div class="team-affil">Associate Professor, University of Vermont</div>
         </div>
@@ -1395,7 +1569,9 @@
           <img src="assets/images/team/fitzpatrick.jpg"
                alt="Anne Fitzpatrick"
                class="team-avatar">
-          <div class="team-name">Anne Fitzpatrick</div>
+          <a href="https://sites.google.com/site/fitzpatrickanne/home" target="_blank" rel="noopener">
+            <div class="team-name">Anne Fitzpatrick</div>
+          </a>
           <div class="team-role">Principal Investigator</div>
           <div class="team-affil">Associate Professor, The Ohio State University</div>
         </div>
@@ -1404,7 +1580,9 @@
           <img src="assets/images/team/reimao.jpg"
                alt="Maira Emy Reimão"
                class="team-avatar">
-          <div class="team-name">Maira Emy Reimão</div>
+          <a href="https://sites.google.com/view/maira-reimao/home" target="_blank" rel="noopener">
+            <div class="team-name">Maira Emy Reimão</div>
+          </a>
           <div class="team-role">Principal Investigator</div>
           <div class="team-affil">Assistant Professor, Villanova University</div>
         </div>
@@ -1428,12 +1606,30 @@
         </div>
 
         <div class="team-card">
-          <div class="team-avatar-placeholder">EK</div>
+          <div class="team-avatar-placeholder">No Photo Yet</div>
           <div class="team-name">Eunice Kioko</div>
           <div class="team-role">Associate Research Manager</div>
           <div class="team-affil">Innovations for Poverty Action, Kenya</div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TWI ========== -->
+  <section class="twi-section" id="twi">
+    <div class="container">
+      <div class="twi-grid">
+        <div class="twi-logo-wrap">
+          <img src="assets/logos/twi-white-logo.png" alt="Triple Win Initiative">
+        </div>
+        <div class="twi-copy">
+          <div class="section-label">About TWI</div>
+          <h2 class="section-title">The Triple Win Initiative</h2>
+          <p>
+            QuiCK is the flagship study of the Triple Win Initiative, a research agenda examining how childcare markets can work better for providers, parents, and children at the same time. The initiative is designed as a longer-run evidence platform, and QuiCK is its first major study.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -1446,29 +1642,45 @@
       </div>
       <div class="partner-logos">
         <div class="partner-logo">
-          <img src="assets/images/funders/UVM.png" alt="University of Vermont">
+          <a href="https://www.uvm.edu/" target="_blank" rel="noopener" aria-label="University of Vermont">
+            <img src="assets/images/funders/UVM.png" alt="University of Vermont">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/osu.jpg" alt="Ohio State University">
+          <a href="https://www.osu.edu/" target="_blank" rel="noopener" aria-label="The Ohio State University">
+            <img src="assets/images/funders/osu.jpg" alt="Ohio State University">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/IPA.png" alt="Innovations for Poverty Action">
+          <a href="https://poverty-action.org/" target="_blank" rel="noopener" aria-label="Innovations for Poverty Action">
+            <img src="assets/images/funders/IPA.png" alt="Innovations for Poverty Action">
+          </a>
         </div>
         <div class="partner-divider"></div>
         <div class="partner-logo">
-          <img src="assets/images/funders/lego.svg" alt="LEGO Foundation">
+          <a href="https://www.legofoundation.com/" target="_blank" rel="noopener" aria-label="LEGO Foundation">
+            <img src="assets/images/funders/lego.svg" alt="LEGO Foundation">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/hilton.svg" alt="Hilton Foundation">
+          <a href="https://www.hiltonfoundation.org/" target="_blank" rel="noopener" aria-label="Hilton Foundation">
+            <img src="assets/images/funders/hilton.svg" alt="Hilton Foundation">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/gates_foundation.png" alt="Gates Foundation">
+          <a href="https://www.gatesfoundation.org/" target="_blank" rel="noopener" aria-label="Gates Foundation">
+            <img src="assets/images/funders/gates_foundation.png" alt="Gates Foundation">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/LIF.png" alt="LIF">
+          <a href="https://www.livelihoodimpactfund.org/" target="_blank" rel="noopener" aria-label="Livelihood Impact Fund">
+            <img src="assets/images/funders/LIF.png" alt="LIF">
+          </a>
         </div>
         <div class="partner-logo">
-          <img src="assets/images/funders/LIC.png" alt="G²LM|LIC">
+          <a href="https://g2lm-lic.iza.org/" target="_blank" rel="noopener" aria-label="G2LM LIC">
+            <img src="assets/images/funders/LIC.png" alt="G²LM|LIC">
+          </a>
         </div>
       </div>
     </div>
@@ -1495,15 +1707,16 @@
             <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener">Policy Brief</a></li>
             <li><a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener">Pre-Analysis Plan</a></li>
             <li><a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener">Pre-Results Report</a></li>
+            <li><a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener">Child Development Protocol</a></li>
           </ul>
         </div>
         <div>
           <h4>Team</h4>
           <ul class="footer-links">
             <li><a href="https://www.emilybeam.com" target="_blank" rel="noopener">Emily Beam (UVM)</a></li>
-            <li><a href="#">Anne Fitzpatrick (OSU)</a></li>
-            <li><a href="#">Maira Emy Reimão (Villanova)</a></li>
-            <li><a href="#">IPA Kenya</a></li>
+            <li><a href="https://sites.google.com/site/fitzpatrickanne/home" target="_blank" rel="noopener">Anne Fitzpatrick (OSU)</a></li>
+            <li><a href="https://sites.google.com/view/maira-reimao/home" target="_blank" rel="noopener">Maira Emy Reimão (Villanova)</a></li>
+            <li><a href="https://poverty-action.org/" target="_blank" rel="noopener">IPA Kenya</a></li>
           </ul>
         </div>
       </div>
@@ -1516,6 +1729,25 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('#nav-menu');
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
