@@ -164,11 +164,16 @@
     }
     .hero-bg {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 55%;
       background-image: url('../images/fieldwork/dorine_child.jpeg');
       background-size: cover;
       background-position: center 20%;
-      opacity: 0.18;
+      opacity: 0.25;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 70%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,1) 70%);
     }
     .hero::before {
       content: '';
