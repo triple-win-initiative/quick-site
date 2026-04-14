@@ -935,20 +935,18 @@
       align-items: center;
     }
     .partner-logo {
-      opacity: 0.6;
       transition: var(--transition);
+      background: rgba(255,255,255,0.92);
+      border-radius: 10px;
+      padding: 12px 20px;
     }
-    .partner-logo:hover { opacity: 1; }
+    .partner-logo:hover { background: rgba(255,255,255,1); }
     .partner-logo a {
       display: block;
     }
     .partner-logo img {
-      height: 40px;
+      height: 36px;
       width: auto;
-      filter: brightness(0) invert(1);
-    }
-    .partner-logo.no-invert img {
-      filter: none;
     }
     .partner-divider {
       width: 1px;
@@ -1120,8 +1118,8 @@
         <li><a href="#triple-win">Triple Win</a></li>
         <li><a href="#approach">Approach</a></li>
         <li><a href="#research">Research</a></li>
+        <li><a href="#resources">Resources</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="nav-cta">Policy Brief</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
@@ -1158,7 +1156,7 @@
       </div>
 
       <div class="hero-buttons">
-        <a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="btn-primary">
+        <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener" class="btn-primary">
           Read the Policy Brief &rarr;
         </a>
         <a href="#research" class="btn-outline">
@@ -1182,51 +1180,31 @@
       <div class="problem-callout">
         <div class="callout-stats">
           <div class="callout-stat">
-            <div class="callout-stat-number">32%</div>
-            <div class="callout-stat-text">
-              <strong>of weekly household income</strong> is spent on childcare — compared to ~7% in the U.S. and 15–17% across the OECD.
-            </div>
-          </div>
-          <div class="callout-stat">
-            <div class="callout-stat-number">~20%</div>
-            <div class="callout-stat-text">
-              <strong>of children are likely hungry</strong> on any given day while in care.
-            </div>
-          </div>
-          <div class="callout-stat">
             <div class="callout-stat-number">44%</div>
             <div class="callout-stat-text">
               <strong>of daycares report having no toys or books</strong> for children — facilities with limited resources for stimulation or cognitive development.
             </div>
           </div>
+          <div class="callout-stat">
+            <div class="callout-stat-number">22%</div>
+            <div class="callout-stat-text">
+              <strong>of daycares administer medicine</strong> to calm children during care.
+            </div>
+          </div>
+          <div class="callout-stat">
+            <div class="callout-stat-number">$37</div>
+            <div class="callout-stat-text">
+              <strong>average monthly earnings</strong> for non-school caregivers — well below Kenya's minimum wage.
+            </div>
+          </div>
         </div>
 
         <div class="callout-facts">
-          <div class="fact-chip">1 in 3 parents bring their child to work due to lack of affordable care</div>
           <div class="fact-chip">Prices do not reliably signal quality — the market exhibits classic "lemons" dynamics</div>
           <div class="fact-chip mint">Parents systematically overestimate quality, especially on less observable dimensions</div>
-          <div class="fact-chip mint">Non-school caregivers earn ~$37/month — well below Kenya's minimum wage</div>
         </div>
       </div>
 
-      <div class="problem-stats">
-        <div class="stat-card">
-          <div class="stat-card-number">22%</div>
-          <div class="stat-card-label">of daycares administer medicine to calm children</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-number">44%</div>
-          <div class="stat-card-label">of daycares have no toys or books for children</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-number">$37</div>
-          <div class="stat-card-label">average monthly earnings for non-school caregivers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-card-number">Price ≠ Quality</div>
-          <div class="stat-card-label">Prices do not reliably signal quality in this market</div>
-        </div>
-      </div>
 
       <p class="problem-source">Source: QuiCK baseline survey, 2024 (working paper in progress)</p>
     </div>
@@ -1248,33 +1226,18 @@
         <div class="win-card">
           <h3>Parents</h3>
           <p>When childcare quality improves, parents — especially mothers — may gain the confidence and freedom to work more consistently, expand their labor force participation, and pursue steadier income-generating opportunities. Access to reliable childcare can change what kinds of work are feasible.</p>
-          <div class="win-tags">
-            <span class="win-tag">Earnings</span>
-            <span class="win-tag">Labor Supply</span>
-            <span class="win-tag">Empowerment</span>
-          </div>
         </div>
 
         <!-- Children -->
         <div class="win-card">
           <h3>Children</h3>
           <p>Higher-quality care has the potential to benefit children through improved feeding, better sanitation, more stimulation, and structured learning activities. The study examines whether these changes translate into measurable gains in child health and development.</p>
-          <div class="win-tags">
-            <span class="win-tag">Nutrition</span>
-            <span class="win-tag">Development</span>
-            <span class="win-tag">Health</span>
-          </div>
         </div>
 
         <!-- Providers -->
         <div class="win-card">
           <h3>Providers</h3>
           <p>Training, mentorship, and franchise branding are designed to help daycare owners professionalize their businesses, attract more families, and strengthen stability. The study tests whether these supports can improve sustainability in a low-margin market.</p>
-          <div class="win-tags">
-            <span class="win-tag">Revenue</span>
-            <span class="win-tag">Professionalization</span>
-            <span class="win-tag">Sustainability</span>
-          </div>
         </div>
 
       </div>
@@ -1359,19 +1322,19 @@
             </li>
             <li>
               <span class="question-id">HB2</span>
-              <span>Increase <strong>provider profits</strong>.</span>
+              <span>The social franchising model will <strong>increase provider profits</strong>.</span>
             </li>
             <li>
               <span class="question-id">HB3</span>
-              <span>Increase <strong>provider agency and pride</strong> in profession.</span>
+              <span>The social franchising model will <strong>increase provider agency and pride</strong> in the profession.</span>
             </li>
             <li>
               <span class="question-id">HB4</span>
-              <span>Increase <strong>household usage of childcare</strong> (extensive and intensive margins).</span>
+              <span>The social franchising model will <strong>increase household usage of childcare</strong> (extensive and intensive margins).</span>
             </li>
             <li>
               <span class="question-id">HB5</span>
-              <span>Increase <strong>maternal employment and household earnings</strong>.</span>
+              <span>The social franchising model will <strong>increase maternal employment and household earnings</strong>.</span>
             </li>
           </ul>
         </div>
@@ -1429,20 +1392,52 @@
           <img src="assets/images/project/Study_Design_202510.png"
                alt="Study design figure"
                loading="lazy">
-          <figcaption>Experimental design flowchart presented on a light panel for readability against the site’s dark theme.</figcaption>
+          <figcaption>Study design: cluster randomized trial with firm and household arms.</figcaption>
         </figure>
         <figure class="figure-card light-panel">
           <img src="assets/images/project/Study_Timeline_202510.png"
                alt="Study timeline"
                loading="lazy">
-          <figcaption>Study timeline shown on a light panel so the schedule, labels, and structure remain legible.</figcaption>
+          <figcaption>Study timeline from planning (Q4 2023) through endline (2026).</figcaption>
         </figure>
         <figure class="figure-card">
           <img src="assets/images/project/DEP_BL_Community_Map.png"
                alt="Community map for the QuiCK study"
                loading="lazy">
-          <figcaption>Community map of the QuiCK study footprint across 11 counties in Kenya.</figcaption>
+          <figcaption>Study communities across 11 counties in Kenya.</figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESOURCES ========== -->
+  <section class="resources" id="resources" style="padding:var(--section-pad) 0;">
+    <div class="container">
+      <h2 class="section-title">Resources</h2>
+      <p class="section-subtitle" style="margin-bottom:2rem;">
+        Key documents for researchers and policymakers.
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
+        <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener" class="pub-card" style="text-decoration:none;display:block;">
+          <div class="pub-card-top"><span class="tag">Policy Brief</span></div>
+          <h3>G²LM|LIC Policy Brief No. 82</h3>
+          <p>Midline results on firm quality, survival, and market spillovers.</p>
+        </a>
+        <a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener" class="pub-card" style="text-decoration:none;display:block;">
+          <div class="pub-card-top"><span class="tag">Registration</span></div>
+          <h3>AEA Pre-Registration</h3>
+          <p>AEARCTR-0011747 — pre-registered hypotheses and analysis plan.</p>
+        </a>
+        <a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener" class="pub-card" style="text-decoration:none;display:block;">
+          <div class="pub-card-top"><span class="tag">Pre-Results</span></div>
+          <h3>Pre-Results Review Report</h3>
+          <p>Pre-analysis plan submitted to the Journal of Development Economics.</p>
+        </a>
+        <a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener" class="pub-card" style="text-decoration:none;display:block;">
+          <div class="pub-card-top"><span class="tag forthcoming">Published</span></div>
+          <h3>Child Development Protocol</h3>
+          <p>Measurement protocol for nutrition and development outcomes (BMJ Open).</p>
+        </a>
       </div>
     </div>
   </section>
@@ -1501,7 +1496,7 @@
           <h3>G²LM|LIC Policy Brief No. 82</h3>
           <p>Midline results on firm quality, survival, and market-level spillovers from the social franchising intervention.</p>
           <div class="pub-meta">Released December 2025</div>
-          <a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener" class="pub-card-link">
+          <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener" class="pub-card-link">
             Read at IZA &rarr;
           </a>
         </div>
@@ -1557,11 +1552,12 @@
     </div>
   </section>
 
-  <!-- ========== PHOTO GRID ========== -->
-  <div class="photo-grid-asym">
+  <!-- ========== PHOTO STRIP ========== -->
+  <div class="photo-strip">
     <img src="assets/images/fieldwork/child_assessment.jpeg" alt="Child assessment" loading="lazy">
     <img src="assets/images/fieldwork/dorine_child.jpeg" alt="Caregiver and child" loading="lazy">
     <img src="assets/images/fieldwork/firm_survey.jpeg" alt="Firm survey" loading="lazy">
+    <img src="assets/images/fieldwork/scales_weighing.jpeg" alt="Weighing scales" loading="lazy">
   </div>
 
   <!-- ========== TEAM ========== -->
@@ -1625,6 +1621,17 @@
         </div>
 
         <div class="team-card">
+          <img src="assets/images/team/vinka.png"
+               alt="Miryana Vinka Dayanti"
+               class="team-avatar">
+          <a href="https://sites.google.com/view/miryanavinka" target="_blank" rel="noopener">
+            <div class="team-name">Miryana Vinka Dayanti</div>
+          </a>
+          <div class="team-role">Graduate Research Assistant</div>
+          <div class="team-affil">The Ohio State University</div>
+        </div>
+
+        <div class="team-card">
           <div class="team-avatar-placeholder" style="width:120px;height:120px;border-radius:50%;background:var(--color-bg-card);border:2px solid var(--color-gold-40);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:2.4rem;color:var(--color-gold);">EK</div>
           <div class="team-name">Eunice Kioko</div>
           <div class="team-role">Associate Research Manager</div>
@@ -1680,7 +1687,6 @@
             <img src="assets/images/funders/IPA.png" alt="Innovations for Poverty Action">
           </a>
         </div>
-        <div class="partner-divider"></div>
         <div class="partner-logo">
           <a href="https://www.legofoundation.com/" target="_blank" rel="noopener" aria-label="LEGO Foundation">
             <img src="assets/images/funders/lego.svg" alt="LEGO Foundation">
@@ -1728,7 +1734,7 @@
         <div>
           <h4>Resources</h4>
           <ul class="footer-links">
-            <li><a href="https://g2lm-lic.iza.org/publications/pb/82/" target="_blank" rel="noopener">Policy Brief</a></li>
+            <li><a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener">Policy Brief</a></li>
             <li><a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener">Pre-Analysis Plan</a></li>
             <li><a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener">Pre-Results Report</a></li>
             <li><a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener">Child Development Protocol</a></li>
