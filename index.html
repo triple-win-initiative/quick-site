@@ -936,18 +936,22 @@
     }
     .partner-logo {
       transition: var(--transition);
-      background: rgba(255,255,255,0.92);
-      border-radius: 10px;
-      padding: 12px 20px;
+      opacity: 0.85;
     }
-    .partner-logo:hover { background: rgba(255,255,255,1); }
+    .partner-logo:hover { opacity: 1; }
     .partner-logo a {
       display: block;
     }
     .partner-logo img {
-      height: 36px;
+      height: 40px;
       width: auto;
     }
+    .partner-logo-boxed {
+      background: rgba(255,255,255,0.92);
+      border-radius: 10px;
+      padding: 10px 16px;
+    }
+    .partner-logo-boxed:hover { background: rgba(255,255,255,1); }
     .partner-divider {
       width: 1px;
       height: 30px;
@@ -1170,7 +1174,7 @@
   <section class="problem" id="problem">
     <div class="container">
       <div class="problem-header">
-        <h2 class="section-title">Childcare is a barrier to women's economic participation</h2>
+        <h2 class="section-title">A childcare market stuck at low quality and low prices</h2>
         <p class="problem-intro">
           Access to high-quality paid childcare is central to advancing women's economic and social agency while also promoting child development. But in Kenya's informal settlements, the childcare market sits at an equilibrium of low prices and low quality — where parents have limited willingness to pay and profitability is low. The market isn't fixing itself because quality is hard to observe and providers lack support to improve.
         </p>
@@ -1290,8 +1294,8 @@
   <section class="questions" id="research">
     <div class="container">
       <h2 class="section-title">Research Questions</h2>
-      <p class="section-subtitle" style="margin-bottom: 0.5rem;">
-        Pre-registered hypotheses from our pre-analysis plan, spanning both the childcare and microentrepreneurship literatures.
+      <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+        Can a social-franchising model improve childcare quality and market functioning in settings with limited regulation? We test whether helping daycare providers improve quality also increases their revenues and enrollment, and we examine downstream effects on household labor force participation and children's development.
       </p>
 
       <div class="questions-grid">
@@ -1603,12 +1607,14 @@
         </div>
 
         <div class="team-card">
-          <img src="assets/images/team/ochieng.jpg"
-               alt="Eric Ochieng"
+          <img src="assets/images/team/vinka.png"
+               alt="Miryana Vinka Dayanti"
                class="team-avatar">
-          <div class="team-name">Eric Ochieng</div>
-          <div class="team-role">Research Manager</div>
-          <div class="team-affil">Innovations for Poverty Action, Kenya</div>
+          <a href="https://sites.google.com/view/miryanavinka" target="_blank" rel="noopener">
+            <div class="team-name">Miryana Vinka Dayanti</div>
+          </a>
+          <div class="team-role">Graduate Research Assistant</div>
+          <div class="team-affil">The Ohio State University</div>
         </div>
 
         <div class="team-card">
@@ -1621,20 +1627,18 @@
         </div>
 
         <div class="team-card">
-          <img src="assets/images/team/vinka.png"
-               alt="Miryana Vinka Dayanti"
-               class="team-avatar">
-          <a href="https://sites.google.com/view/miryanavinka" target="_blank" rel="noopener">
-            <div class="team-name">Miryana Vinka Dayanti</div>
-          </a>
-          <div class="team-role">Graduate Research Assistant</div>
-          <div class="team-affil">The Ohio State University</div>
-        </div>
-
-        <div class="team-card">
           <div class="team-avatar-placeholder" style="width:120px;height:120px;border-radius:50%;background:var(--color-bg-card);border:2px solid var(--color-gold-40);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:2.4rem;color:var(--color-gold);">EK</div>
           <div class="team-name">Eunice Kioko</div>
           <div class="team-role">Associate Research Manager</div>
+          <div class="team-affil">Innovations for Poverty Action, Kenya</div>
+        </div>
+
+        <div class="team-card">
+          <img src="assets/images/team/ochieng.jpg"
+               alt="Eric Ochieng"
+               class="team-avatar">
+          <div class="team-name">Eric Ochieng</div>
+          <div class="team-role">Research Manager</div>
           <div class="team-affil">Innovations for Poverty Action, Kenya</div>
         </div>
 
@@ -1692,7 +1696,7 @@
             <img src="assets/images/funders/lego.svg" alt="LEGO Foundation">
           </a>
         </div>
-        <div class="partner-logo">
+        <div class="partner-logo partner-logo-boxed">
           <a href="https://www.hiltonfoundation.org/" target="_blank" rel="noopener" aria-label="Hilton Foundation">
             <img src="assets/images/funders/hilton.svg" alt="Hilton Foundation">
           </a>
