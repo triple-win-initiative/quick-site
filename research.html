@@ -87,6 +87,61 @@
     .r-main .pub-card h3 { font-size: 0.95rem; }
     .r-main .pub-card p { font-size: 0.82rem; }
 
+    .r-header {
+      padding: calc(var(--nav-height) + 1.5rem) 0 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .r-header img { height: 32px; margin: 0 auto; }
+
+    .r-callout {
+      background: var(--color-bg-card);
+      border-left: 3px solid var(--color-gold);
+      padding: 1rem 1.2rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 1.5rem;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: var(--color-white-70);
+    }
+
+    .r-sidebar-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 0.6rem 0;
+    }
+    .r-sidebar .sub-link {
+      font-size: 0.75rem;
+      padding-left: 0.8rem;
+      color: var(--color-white-40);
+    }
+    .r-sidebar .sub-link::before {
+      content: '↗ ';
+      font-size: 0.65rem;
+    }
+
+    .r-bib-list { list-style: none; padding: 0; }
+    .r-bib-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .r-bib-list li:last-child { border-bottom: none; }
+    .r-bib-status {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      margin-left: 0.4rem;
+    }
+    .r-bib-status.released { background: var(--color-mint-20); color: var(--color-mint); }
+    .r-bib-status.wip { background: var(--color-gold-20); color: var(--color-gold); }
+    .r-bib-status.planned { background: rgba(255,255,255,0.06); color: var(--color-white-40); }
+
     .r-resources {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -156,6 +211,11 @@
     </div>
   </nav>
 
+  <!-- ========== HEADER ========== -->
+  <div class="r-header">
+    <img src="assets/logos/quick-white-logo.png" alt="QuiCK — Quality Childcare in Kenya">
+  </div>
+
   <div class="r-layout">
 
     <!-- ===== SIDEBAR ===== -->
@@ -166,6 +226,10 @@
       <a href="#findings">Key Findings</a>
       <a href="#publications">Publications</a>
       <a href="#resources">Resources</a>
+      <div class="r-sidebar-divider"></div>
+      <a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener" class="sub-link">Pre-Analysis Plan</a>
+      <a href="https://www.socialscienceregistry.org/trials/11747" target="_blank" rel="noopener" class="sub-link">AEA Registry</a>
+      <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener" class="sub-link">Policy Brief</a>
     </aside>
 
     <!-- ===== MAIN CONTENT ===== -->
@@ -173,9 +237,9 @@
 
       <section id="research">
         <h2 class="section-title">Research Questions</h2>
-        <p class="section-subtitle">
+        <div class="r-callout">
           Can a social-franchising model improve childcare quality and market functioning in settings with limited regulation? We test whether helping daycare providers improve quality also increases their revenues and enrollment, and we examine downstream effects on household labor force participation and children's development.
-        </p>
+        </div>
 
         <div class="questions-grid">
           <div class="question-group primary">
@@ -270,36 +334,35 @@
       <section id="publications">
         <h2 class="section-title">Publications</h2>
 
-        <div class="pub-grid">
-          <div class="pub-card">
-            <div class="pub-card-top"><span class="tag">Policy Brief</span> <span class="status released">Released</span></div>
-            <h3>G²LM|LIC Policy Brief No. 82</h3>
-            <p>Midline results on firm quality, survival, and market spillovers.</p>
-            <div class="pub-meta">December 2025</div>
-            <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener" class="pub-card-link">Read &rarr;</a>
-          </div>
-          <div class="pub-card">
-            <div class="pub-card-top"><span class="tag wip">Working Paper</span> <span class="status">In Progress</span></div>
-            <h3>Baseline Paper: Childcare Market Conditions</h3>
-            <p>Information frictions, cost burden, and quality gaps in Kenya's informal childcare market.</p>
-          </div>
-          <div class="pub-card">
-            <div class="pub-card-top"><span class="tag forthcoming">Protocol</span> <span class="status released">Published</span></div>
-            <h3>Child Development Measurement Protocol</h3>
-            <p>Nutrition and development outcome measurement (BMJ Open, March 2026).</p>
-            <a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener" class="pub-card-link">Read &rarr;</a>
-          </div>
-          <div class="pub-card">
-            <div class="pub-card-top"><span class="tag wip">Paper</span> <span class="status">In Progress</span></div>
-            <h3>Child Development Results</h3>
-            <p>Nutrition, anthropometrics, and direct child development assessments. After endline.</p>
-          </div>
-          <div class="pub-card">
-            <div class="pub-card-top"><span class="tag wip">Paper</span> <span class="status">Planned</span></div>
-            <h3>Endline Results</h3>
-            <p>Full firm, household, and child outcomes after endline data collection.</p>
-          </div>
-        </div>
+        <ul class="r-bib-list">
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. (2025). "Improving Childcare Quality through Social Franchising." <em>G²LM|LIC Policy Brief No. 82.</em>
+            <span class="r-bib-status released">Released</span>
+            <a href="assets/pdf/GLMLIC-Policy-Brief_082.pdf" target="_blank" rel="noopener">[PDF]</a>
+          </li>
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. (2026). "Child Development Measurement Protocol for the QuiCK Study." <em>BMJ Open</em>, 16(3), e112224.
+            <span class="r-bib-status released">Published</span>
+            <a href="https://bmjopen.bmj.com/content/16/3/e112224" target="_blank" rel="noopener">[Link]</a>
+          </li>
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. "Improving Childcare Quality through Social Franchising: A Pre-Results Review Report Proposal." <em>Submitted to Journal of Development Economics.</em>
+            <span class="r-bib-status wip">Under Review</span>
+            <a href="assets/pdf/DEP_Baseline_and_PAP_April24.pdf" target="_blank" rel="noopener">[PDF]</a>
+          </li>
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. "Childcare Market Conditions in Kenya's Informal Settlements." <em>Working paper.</em>
+            <span class="r-bib-status wip">In Progress</span>
+          </li>
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. "Child Development Results from the QuiCK Evaluation."
+            <span class="r-bib-status planned">After Endline</span>
+          </li>
+          <li>
+            Beam, E., Fitzpatrick, A., &amp; Reimão, M.E. "Endline Results: Firm, Household, and Child Outcomes."
+            <span class="r-bib-status planned">After Endline</span>
+          </li>
+        </ul>
       </section>
 
       <section id="resources">
